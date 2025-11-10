@@ -16,17 +16,8 @@ void SEngine_Init(int argc, char *argv[]) {
     while (!exit) {
         SDL_Event e;
         while (SDL_PollEvent(&e)) {
-            switch (e.type) {
-                case SDL_EVENT_QUIT:
-                    exit = true;
-                    break;
-                case SDL_EVENT_KEY_DOWN:
-                    if (e.key.key == SDLK_ESCAPE) {
-                        exit = true;
-                    }
-                    break;
-                default:
-                    break;
+            if (SEngine_HandleEvent(&e) == SEngineResult::QUIT) {
+                exit = true;
             }
         }
 
