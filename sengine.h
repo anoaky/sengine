@@ -8,6 +8,7 @@ enum class SEngineResult {
 };
 
 SEngineResult SEngine_HandleEvent(SDL_Event *event); // TODO: wrap SDL_Event
+void SEngine_AppQuit();
 void SEngine_Init(int argc, char *argv[]);
 
 #endif // SENGINE_LIBRARY_H

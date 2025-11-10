@@ -14,6 +14,8 @@ SEngineResult SEngine_HandleEvent(SDL_Event *event) {
     return SEngineResult::CONTINUE;
 }
 
+void SEngine_AppQuit() {}
+
 int main(int argc, char *argv[]) {
     SEngine_Init(argc, argv);
     return 0;

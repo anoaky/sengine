@@ -7,6 +7,13 @@ struct SEngine_Core {
     SDL_Renderer *renderer;
 } SEngine_Core;
 
+void SEngine_Exit() {
+    SEngine_AppQuit();
+    SDL_DestroyRenderer(SEngine_Core.renderer);
+    SDL_DestroyWindow(SEngine_Core.window);
+    SDL_Quit();
+}
+
 void SEngine_Init(int argc, char *argv[]) {
     SDL_Init(SDL_INIT_VIDEO);
     SDL_CreateWindowAndRenderer("S-Engine", 1280, 720, 0, &SEngine_Core.window, &SEngine_Core.renderer);
@@ -24,4 +31,5 @@ void SEngine_Init(int argc, char *argv[]) {
         SDL_RenderClear(SEngine_Core.renderer);
         SDL_RenderPresent(SEngine_Core.renderer);
     }
+    SEngine_Exit();
 }
